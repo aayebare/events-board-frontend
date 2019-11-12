@@ -11,7 +11,7 @@ export class EventRouteActivator implements CanActivate {
         const eventExists = !!this.eventService.getEvent(+route.params['id'])
 
         if(!eventExists)
-            this.router.navigate(['/404'])
+            this.router.navigate(['/error404'])
         return eventExists
 
     }

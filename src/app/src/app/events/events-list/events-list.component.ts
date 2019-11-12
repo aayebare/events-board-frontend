@@ -12,7 +12,7 @@ import { ToastrService } from '../../common/toastr.service';
       <div class="row">
         <div class="col-md-5" *ngFor="let event of events" >
       <event-thumbnail #thumbnail (click)="handleThumbnailClick(event.name)" [event]="event"></event-thumbnail>
-<!--      <button class="btn btn-primary" (click)="thumbnail.logOn()">logon</button>-->
+<!--      <button class="btn btn-primary" (click)="thumbnail.logOn(event.name)">logon</button>-->
         </div>
       </div>
     </div>`,
