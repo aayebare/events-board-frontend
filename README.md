@@ -14,13 +14,33 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+## SETTING UP WITH DOCKER
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Before booting up the environment (`docker build -t <dockerimagename> .`) ensure that you have [docker](https://docs.docker.com/) **installed** and **running** on your machine.
+If you are using mac this [install](https://docs.docker.com/docker-for-mac/install/) should get you started.
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+To start the build, run:
+
+```
+docker build -t <imagename> .
+```
+
+After the build is complete, you can view the available images with:
+
+```
+docker images
+```
+Spin up a container using the command 
+```
+docker run -p <PORT>T:4200 --name <containername> <imagename>
+```
+Then you can access the application; served at `http://localhost:<PORT>` by the node server.
+To stop the application, you can pull down the containers with:
+
+```
+docker stop <containername>
+```
 
 ## Further help
 
