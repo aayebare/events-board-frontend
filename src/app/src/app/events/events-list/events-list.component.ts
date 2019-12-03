@@ -11,8 +11,8 @@ import { ToastrService } from '../../common/toastr.service';
       <hr>
       <div class="row">
         <div class="col-md-5" *ngFor="let event of events" >
-      <event-thumbnail #thumbnail (click)="handleThumbnailClick(event.name)" [event]="event"></event-thumbnail>
-<!--      <button class="btn btn-primary" (click)="thumbnail.logOn()">logon</button>-->
+      <event-thumbnail #thumbnail [event]="event" (click)="handleThumbnailClick(event.name)"></event-thumbnail>
+<!--      <button class="btn btn-primary" (click)="thumbnail.logOn(event.name)">logon</button>-->
         </div>
       </div>
     </div>`,
@@ -23,13 +23,13 @@ export class EventsListComponent implements OnInit {
   constructor( private eventService: EventserviceService, private toastr: ToastrService) {}
 
   ngOnInit() {
-
-  this.events = this.eventService.getEvents();
+    this.events = this.eventService.getEvents();
 }
 
-handleThumbnailClick(eventName){
-  this.toastr.success(eventName)
-}
+  handleThumbnailClick = (eventName) => {
+    console.log('=================');
+    this.toastr.success(eventName);
+  }
 // handleEventClicked(data){
 //   console.log(data)
 // }

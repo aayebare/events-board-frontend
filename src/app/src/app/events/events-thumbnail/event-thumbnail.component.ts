@@ -1,4 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {EventserviceService} from "../shared/eventservice.service";
+import {ToastrService} from "../../common/toastr.service";
 
 @Component({
   selector: 'event-thumbnail',
@@ -33,6 +35,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 export class EventThumbnailComponent {
   @Input() event: any;
+  constructor( private eventService: EventserviceService, private toastr: ToastrService) {}
   // @Output() eventClick = new EventEmitter()
   //
   // handleClickMe(){
